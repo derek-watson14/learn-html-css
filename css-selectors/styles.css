@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  width: 600px;
+  margin: 0 auto;
+}
+
+/* .synopsis {
+  color: #7E8184;
+  font-style: italic;
+} */
+/* In this case, can use first-of-type to replace synopsis, in a way.
+It selects the first p element in every container. */
+/* p:first-of-type {
+  color: #7E8184;
+  font-style: italic;
+} */
+/* can set it to select only first p element of certain containers */
+.page > p:first-of-type {
+  color: #7E8184;
+  font-style: italic;
+}
+
+/* this is called a decendent selector, will only apply to <em> in .synopsis
+    any group of selector can use descendants, h1 em, for example. Decendant 
+    selectors can be nested indefinitely in CSS. There is also a
+    "child selector" that uses > syntax, and only effects direct children
+    of an element, not items deep in DOM. */
+.synopsis em {
+  font-style: normal;
+}
+
+h1 em, h3 em {
+  font-style: italic; 
+}
+
+.synopsis > strong {
+  background: rgba(236, 238, 109, 0.938);
+}
+
+.button:link,
+.button:visited {
+  display: block;
+  text-decoration: none;
+  
+  color: #FFF;
+  background-color: #5995DA;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5D6063;
+  border-radius: 5px;
+
+  width: 200px;
+  margin: 20px auto;
+}
+
+.button:hover,
+.button:visited:hover {
+  color: #FFF;
+  background-color: #76AEED;  /* Light blue */
+}
+
+.button:active,
+.button:visited:active {
+  color: #FFF;
+  background-color: #5995DA;  /* Blue */
+}
+
+/* order matters when using multiple classes on one element, the properties of
+the class that is defined later in the CSS document will overide the 
+earlier ones. More specific rules will also overrules less specific ones.
+For example, .call-to-action's color is overriden by .button:link selector */
+.call-to-action:link,
+.call-to-action:visited {
+  font-style: italic;
+  background-color: #EEB75A; /* overides button value */
+}
+.call-to-action:hover,
+.call-to-action:visited:hover {
+  background-color: #F5CF8E;     /* Light yellow */
+}
+.call-to-action:active,
+.call-to-action:visited:active {
+  background-color: #EEB75A;     /* Yellow */
+}
+
+/* Pseudo-classes for links */
+/* Pseudo-classes check how a user is interacting with html elements */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  color: aqua;
+  text-decoration: underline;
+}
+a:active {
+  color: red;
+}
+/* stringing pseudo-classes together. Now ignores a:active on click */
+a:visited:hover {
+  color: orange;
+}
+a:visited:active {
+  color: red;
+}
+
+/* Pseudo-classes for structure: povide extra info about elements surrounding 
+:last-of-type selects final element of particular type in its parent element */
+p:last-of-type {
+  margin-bottom: 50px;
+}
+
+/* ID Selectors - these are generally frowned upon becuase there can
+only be one element with a given ID on an HTML page, thus the attrbutes
+cannot be shared */
+#button-2 {
+  color: #5D6063;  /* Dark gray */
+}
+/* URL Fragments:
+  Scheme: https://
+  Domain: example.com
+  Path: /selectors.html
+  Fragment: #button-2 */
+
+/* ID selectors allow jumps to specific parts of a page. This creates a 
+  dependency between URL and CSS because URL fragments and selectors use
+  the same syntax. This HTML allows jumping through page:
+  <a class='button' href='#button-2'>Go to Button Two</a>
+  <a href='selectors.html#button-2'>Go to Button Two</a> */
+
+/* CSS Specificity: 
+  Specifies the importance of CSS selectors have and which ones will overide
+  others, regardless of thier order in the document. From most to least:
+
+  1. #id-name (ID selector)
+  2. .class-name:pseudo-type (class selector with pseudo-class)
+  3. h1:pseudo-type && .class-name dependancy (type selector with Pseudo class and class decendant)
+  4. .class-name (class selector)
+  5. h1 (type selector)
+
+  Something called BEM has evolved to help deal with this for larger sites */

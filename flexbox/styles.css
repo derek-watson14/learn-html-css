@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Here will be using 1. flex contanainers which contain 2. flex items.
+  Every element that is a direct child of a flex container is an item. */
+
+/* flex containers use justify-content for horizontal alignment and 
+  align items for vertical alignment */
+
+.menu-container {
+  /* tells browser everything in this container should use flexbox, 
+    essentailly enabling the flexbox layout */
+  color: #fff;
+  background-color: #5995DA; 
+  padding: 20px 0;
+
+  display: flex;
+  justify-content: center;
+  /* same as adding margin: 0 auto to items inside container (ie. menu),
+    mapping items like this in their containers is a theme of flexbox */
+}
+
+.menu {
+  width: 900px;
+  display: flex;
+  justify-content: space-between; /* others inclue flex-end, flex-start, space-around */
+}
+
+/* can use auto margin to split up items we want to seperate */
+.signup {
+  /* Auto-margins eat up all the extra space in a flex container,
+    moving the items all the way to the right and keeping HTML flatter */
+  margin-left: auto;
+}
+/* could achieve above effect with margin-right auto on the date item as well
+.date {
+  margin-right: auto;
+}  */
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login {
+  margin-left: 20px;
+}
+
+.header-container {
+  color: #5995DA;
+  background-color: #D6E9FE;
+  display: flex;
+  justify-content: center; /* center its items like menu */
+}
+
+.header {
+  width: 900px; /* same width as menu */
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-grid-container { /* centers the whole "photogrid" horizontally */
+  display: flex;
+  justify-content: center;
+}
+
+.photo-grid { /* specify container width, flex align left horizontally */
+  width: 900px;
+  display: flex;
+  justify-content: center; /* each row will center, with more or fewer photos */
+  /* without this property, the photos would continue to be added to the right */
+  flex-wrap: wrap;
+  /* change direction of container, adding photos vertiacally instead of horizontally,
+  until running out of space. Useful for responsive mobile design. This esentially
+  turns the container on its side, which also changes how justify-content acts.
+  With this active, items will be centered up and down with horz alignment 
+  flex-direction: column; 
+  align-items: center; (here uses "vert align" to change horz align)*/
+  flex-direction: row; /* renders individual rows right to left */
+  align-items: center;
+}
+
+.photo-grid-item {
+  border: 1px solid #fff;
+  width: 300px;
+  height: 300px;
+}
+
+
+.first-item {
+  /* order works across rows/columns (the first and last will really be swapped) */
+  order: 1;
+}
+
+.last-item {
+  order: -1;
+}
+
+.social,
+.subscribe {
+  /* align-self can be used to override flex container properties for 
+    individual items */
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  border: 1px solid #fff;
+  background-color: #D6E9FE;
+  height: 200px;
+  /* tells items to stretch to match container width, 
+  giving all equal "weight"*/
+  flex: 1; 
+}
+
+/* .footer-three {
+  "give third header additional weight
+  justify-content distributes space between items, flex stretches them
+  can combine static and flexible boxes with flex: initial 
+
+  flex: 2; doubles weight of one item, making it larger
+} */
+
+.footer-one,
+.footer-three {
+  background-color: #5995DA;
+  /* ignores the flex: 1 of footer-item for 1 and 3, making only 2 flex,
+    while 1 & 3 maintain their initial size */
+  flex: initial;
+  width: 300px;
+}
+
+
+/* Flex item order and flex item alignment allows for manipulation of individual
+  elements irrespective of container specified rules */
+
+/* 
+Options for justify-content: (horizontal in direction: row)
+  1. center
+  2. flex-start (left)
+  3. flex-end (right)
+  4. space-around
+  5. space-between
+
+Options for align-items: (vertical in direction: row)
+  1. center
+  2. flex-start (top)
+  3. flex-end (bottom)
+  4. stretch (can create equal height columns for varaible length content)
+  5. baseline
+*/
+
+/* SUMMARY: 
+
+  Use display: flex; to create a flex container.
+  Use justify-content to define the horizontal alignment of items.
+  Use align-items to define the vertical alignment of items.
+  Use flex-direction if you need columns instead of rows. (row/column)
+  Use the row-reverse or column-reverse values to flip item order.
+  Use order to customize the order of individual elements.
+  Use align-self to vertically align individual items.
+  Use flex to create flexible boxes that can stretch and shrink.
+
+*/

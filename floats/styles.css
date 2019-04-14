@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Block level elements fill 100% of parents width, 
+unless otherwise specified */
+/* Now elements will float to edges of page container, not browser edge */
+.page {
+  width: 900px;
+  margin: 0 auto; /* essentially says float center */
+  /* overflow: hidden, tells container to recognize height of floated
+  elements that it contains */
+  overflow: hidden;  
+}
+
+.container {         
+  background-color: #EAEDF0;  
+}
+
+.menu {
+  height: 100px;
+  background-color: #B2D6FF; 
+}
+
+.sidebar {
+  /* float aligns blocks: left or right OR "margin: 0 auto" */
+  float: left; /* can be overridden with value none */
+  width: 200px;
+  height: 300px;
+  background-color: #F09A9D;
+}
+
+.content {
+  float: left; /* puts content next to sidebar */
+  width: 650px;
+  height: 500px;
+  background-color: #F5CF8E;
+  padding: 20px;
+}
+
+.article-image {
+  float: left; /* text will now flow around */
+  width: 300px;
+  height: 200px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* height of floated elements don't contribute to vertical position of footer,
+  so by default it will stick below last non-floated element */
+.footer {
+  /* clear: both; clears floats, forcing return to vertical flow */
+  /* if the footer is not in the container element containing the floats, 
+  this fix is broken, because the page container now has no height */
+  overflow: hidden;
+  background-color: #D6E9FE;
+}
+
+.footer-item {
+  float: left;
+  /* percentages are relative to width of parent element */
+  width: 31%;
+  margin: 20px 1.15%;
+  height: 160px;
+  background-color: #B2D6FF;
+}
+
+.avatar {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin: 25px;
+  border-radius: 40px;
+  background-color: #D6E9FE;
+}
+
+.username {
+  margin-top: 30px;
+}
+
+.comment {
+  margin: 10px;
+  /* prevents text from hanging under image */
+  overflow: hidden;
+}
+
+
+
+/* When you have an extra unfloated HTML element at the bottom of a container div, use the clear solution. 
+Otherwise, add an overflow: hidden declaration to the container element to incorporate floated elements into
+the calculation of the containers height. The idea for both options is that you need a way to tell the browser to 
+incorporate floats into the height of their container element in order for their backgrounds to show up. */
+

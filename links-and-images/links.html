@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Links</title>
+  </head>
+  <body>
+    <h1>Links</h1>
+    <p>This example is about links and <a href='images.html'>images</a></p>
+    <!-- href = attribute, <a> = element, "Hello!" = content -->
+    <p>This particular page is about links! There are three kinds of links:</p>
+    <ul>
+      <!-- Most detailed way to refer to web resource, scheme (http), domain (mozilla.org), and path (/EN/WEB) -->
+      <li>Absolute links, like to
+          <a href='https://developer.mozilla.org/en-US/docs/Web/HTML' target='_blank'>
+          Mozilla Developer Network</a>, which is a very good resource for web
+          developers.</li>
+      <!-- “Relative” links point to another file in your website from the vantage point of the file you’re editing. -->
+      <li>Relative links, like to our <a href='misc/extras.html'>extras
+        page</a>.</li>
+      <!-- This won't work for our local HTML files -->\
+      <!-- only difference between relative and root relative is root relatives start with a / -->
+      <li>Root-relative links, like to the <a href='/'>home page</a> of our website,
+      but those aren't useful to us right now. Currently goes to the C drive of this computer</li>
+    </ul>
+  </body>
+</html>

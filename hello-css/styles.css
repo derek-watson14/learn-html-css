@@ -1,0 +1,49 @@
+/* body is a "selector", color is a "property", #FF0000 is a "value" */
+/* css is for presentaional information, not semantic meaning */
+body {
+  /* shades of grey is better on the eyes than black and white */
+  color: #414141;
+  background-color: #eeeeee;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* gives browsers fallbacks in case font isnt supported, trying the most 
+  specific first, Helvetica */
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 2em;
+  /* font size can be specified in px or in em, which is a relative measurement */
+  /* can be useful because then when the base size is adjusted the page scales accordingly */
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: lower-roman;
+}
+
+/* You can create custom bullets for li elements with list-style-image property */
+
+a {
+  text-decoration: none;
+}
+
+/* The other common value for text-decoration is line-through to strike out  
+“deleted” text. But, remember that meaning should always be conveyed
+through HTML—not CSS. It’s better to use the <ins> and <del> elements
+instead of adding a line-through style to, say, an ordinary <p> element. */
+
+p {
+  text-align: left;
+}

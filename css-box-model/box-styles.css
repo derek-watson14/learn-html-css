@@ -1,0 +1,86 @@
+/* * is the universal CSS selector and can be used to overide default browser
+   styles. A similar reset (often more complicated) is common in global CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* aligns the content part of a block box (or of inline properties)
+      block level alignment is totally unrelated to text-align */
+  text-align: center;
+}
+/* hx and p are block boxes, a new block will always appear below the previos
+  block in the html file */
+/* the width of block boxes is set based upon the width of the parent container 
+   block height is based on the content it contains and the browser width */
+h1, p {
+  background-color: #DDE0E3;    /* Light gray */
+}
+
+/* em and strong are inline boxes, they do not affect vertical spacing and
+   their width is based on their content */
+em, strong {
+  background-color: #B2D6FF;    /* Light blue */
+  display: inline; /* default */
+  /* display: block; makes em and strong blocks w/ their own line, fill width of browser */
+}
+strong {
+  margin: 50px; /* inline elements completely ignore margins vertically */
+  /* padding: 10px; but they will change vertically with increased padding,
+                      though this change won't effect surrounding boxes */
+  font-size: 1em;
+}
+
+/* CSS Box Model:
+Content – The text, image, or other media content in the element.
+Padding – The space between the box’s content and its border.
+Border – The line between the box’s padding and margin.
+Margin – The space between the box and surrounding boxes. */
+
+h1 {
+  /* everything inside the border of the box model gets background properties */
+  /* padding-top: 1.3em;
+  padding-bottom: 1.3em;
+  padding-left: 1em;
+  padding-right: 1em; 
+  OR:
+  padding: 1.3em 1em; Format: Vertical  Horizontal 
+  OR: */
+  padding: 20px 0 20px 10px;  /* Format: Top  Right  Bottom  Left (clockwise) */
+  border-bottom: 1px solid #5D6063;
+}
+
+/* Margins add space between a box and the surrounding boxes
+  Margins are always transparent and are not included in element click area
+  They also collapse vertically, while padding doesnt */
+p {
+  padding: 20px 0 20px 10px;
+  /* adjacent vertical margins collapse, meaning they don't add, only the higher
+      of two values is applied. Can be considered minimum space b/w elements.
+      to prevent margin collapse, another invisible element should be placed
+      in between w/ a non 0 height */ 
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+div {
+  color: #FFF;
+  background-color: #5995DA;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center; 
+  border: 2px solid #5D6063;
+  border-radius: 5px;
+  /* Explicit dimension, by default only defines width of content part of box model
+    padding, border and margin are added on top of that. CSS allows the width calculation
+    behavior to be altered with the box-sizing property */
+  width: 200px;
+  box-sizing: border-box; /* now includes padding and borders in width, more intuitive */
+  margin: 20px auto; /* Vertical  Horizontal */
+  /* when horizontal margins are auto, it will center block in its parent. This
+    only has a noticable effect when the width is specified */
+}
+/* making the div button's text longer will make it evenually expand vertically.
+  this behavior can be changed with white-space and overflow properties */
